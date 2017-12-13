@@ -1,0 +1,183 @@
+body * {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  color: #484141; }
+
+.clearfix {
+  height: 84px; }
+
+.hero {
+  height: 450px;
+  background-image: url("../assets/Gradient.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  background-color: white; }
+  .hero h4 {
+    color: white; }
+  .hero .hero-title {
+    width: 95%;
+    padding-top: 130px;
+    margin: 0 auto;
+    text-align: center; }
+    .hero .hero-title h1 {
+      color: white;
+      font-weight: 600; }
+  .hero .cta-create {
+    padding-top: 30px;
+    margin: 0 auto;
+    text-align: center; }
+  .hero .cta h1, .hero .cta p {
+    color: white; }
+  .hero .cta .signup {
+    padding-top: 20px; }
+  .hero .cta p {
+    line-height: 60px; }
+  .hero .cta .cta-filled {
+    background-color: #F2CE36;
+    border: solid 1px #F2CE36;
+    color: white;
+    border-radius: 5px;
+    width: 190px;
+    height: 60px;
+    font-size: 24px;
+    text-shadow: 1px 1px 10px #484141; }
+  .hero .cta .cta-filled:hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .hero .cta .cta-outlined {
+    background-color: transparent;
+    border: solid 1px #F2CE36;
+    color: #F2CE36;
+    border-radius: 5px;
+    width: 190px;
+    height: 60px;
+    font-size: 24px; }
+  .hero .cta .cta-outlined:hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+
+.about, .list, .wish {
+  padding: 70px 0 30px 0; }
+  .about .about-header, .about .list-header, .about .wish-header, .list .about-header, .list .list-header, .list .wish-header, .wish .about-header, .wish .list-header, .wish .wish-header {
+    width: 95%;
+    margin: 0 auto;
+    text-align: center; }
+  .about h1, .list h1, .wish h1 {
+    color: #440460;
+    padding-bottom: 30px;
+    font-weight: 600; }
+  .about .card, .list .card, .wish .card {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+    width: 230px;
+    height: 360px;
+    margin-bottom: 50px;
+    overflow: hidden; }
+  .about .card:hover, .list .card:hover, .wish .card:hover {
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+  .about .container, .list .container, .wish .container {
+    color: #484141;
+    padding: 16px 16px 5px 16px; }
+
+.list .card {
+  height: 220px; }
+  .list .card .image {
+    width: 100%;
+    height: 150px; }
+
+.wish .card {
+  height: 300px; }
+  .wish .card .image {
+    width: 100%;
+    height: 150px; }
+  .wish .card .container {
+    height: 150px; }
+  .wish .card .container-title, .wish .card .wish-title {
+    padding-top: 3px; }
+    .wish .card .container-title .price, .wish .card .wish-title .price {
+      float: right;
+      color: #440460;
+      font-weight: 600; }
+
+.reserve .card {
+  height: 350px; }
+
+.reserve button {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background-color: #F2CE36;
+  text-shadow: 1px 1px 10px #484141;
+  color: white;
+  border: none; }
+
+.reserved button {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background-color: #440460;
+  color: white;
+  border: none; }
+
+.footer {
+  background-color: #F8F8FB;
+  color: #484141;
+  padding: 50px 0;
+  margin: 0 auto;
+  text-align: center; }
+  .footer a {
+    color: #440460;
+    font-weight: 600; }
+  .footer .contact {
+    padding-bottom: 15px; }
+    .footer .contact h4 {
+      color: #440460;
+      font-weight: 500;
+      padding-bottom: 10px; }
+  .footer .disclaimer p {
+    border-top: 1px solid #484141;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px; }
+
+.modal-content {
+  width: 100%; }
+  .modal-content .images {
+    width: 45%;
+    float: left; }
+    .modal-content .images .image {
+      width: 100%;
+      height: 170px; }
+  .modal-content .forms {
+    overflow: hidden;
+    width: 50%;
+    float: right; }
+
+.uploaders img {
+  width: 100%; }
+
+.cta-update-wish, .cta-btn-yellow {
+  background-color: #F2CE36;
+  color: white;
+  text-shadow: 1px 1px 10px #484141; }
+
+.cta-delete-wish {
+  background-color: #440460;
+  color: white;
+  margin: 0 10px; }
+
+.cta-delete-wish, .cta-update-wish {
+  float: right;
+  display: inline; }
+
+.hidephoto {
+  display: none; }

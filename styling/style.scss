@@ -1,0 +1,275 @@
+$font: Helvetica, sans-serif;
+
+$cta-size: 24px;
+
+$darkpurple: #440460;
+$purple: #9634B8;
+$darkyellow: #F2CE36;
+$yellow: #FFDE57;
+$bg-color: #F8F8FB;
+$font-color: #484141;
+
+$textshadow: 1px 1px 10px $font-color;
+
+body * {
+	margin: 0;
+	padding: 0;
+	font-family: $font;
+	color: $font-color;
+}
+
+// Hero
+.clearfix {
+	height: 84px;
+}
+
+.hero {
+	height: 450px;
+	background-image: url("../assets/Gradient.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center bottom;
+   	background-color: white;
+
+   	h4 {
+   		color: white;
+   	}
+
+   	.hero-title {
+   		width: 95%;
+   		padding-top: 130px;
+		margin: 0 auto;
+		text-align: center;
+		h1 {
+			color: white;
+			font-weight: 600;
+		}
+   	}
+
+   	.cta-create {
+   		padding-top: 30px;
+		margin: 0 auto;
+		text-align: center;
+   	}
+
+   	.cta {
+
+   		h1, p {;
+   			color: white;
+   		}
+
+   		.signup {
+   			padding-top: 20px;
+   		}
+
+   		p {
+   			line-height: 60px;
+   		}
+
+   		.cta-filled {
+   			background-color: $darkyellow;
+   			border: solid 1px $darkyellow;
+   			color: white;
+   			border-radius: 5px;
+   			width: 190px;
+   			height: 60px;
+   			font-size: $cta-size;
+   			text-shadow: $textshadow;
+   		}
+
+   		.cta-filled:hover {
+    		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+
+   		.cta-outlined {
+   			background-color: transparent;
+   			border: solid 1px $darkyellow;
+   			color: $darkyellow;
+   			border-radius: 5px;
+   			width: 190px;
+   			height: 60px;
+   			font-size: $cta-size;
+   		}
+
+   		.cta-outlined:hover {
+    		box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+   	}
+}
+
+// about
+.about, .list, .wish {
+	padding: 70px 0 30px 0;
+
+	.about-header, .list-header, .wish-header {
+		width: 95%;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	h1 {
+		color: $darkpurple;
+		padding-bottom: 30px;
+		font-weight: 600;
+	}
+
+	.card {
+		box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	    transition: 0.3s;
+		width: 230px;
+		height: 360px;
+		margin-bottom: 50px;
+		overflow: hidden;
+	}
+
+	.card:hover {
+    	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+	}
+
+	.container {
+		color: $font-color;
+	    padding: 16px 16px 5px 16px;
+	}
+}
+
+// list
+.list {
+	.card {
+		height: 220px;
+		.image {
+			width: 100%;
+			height: 150px;
+		}
+	}
+}
+
+// wishes
+.wish {
+	.card {
+		height: 300px;
+		.image {
+			width: 100%;
+			height: 150px;
+		}
+
+		.container {
+			height: 150px;
+		}
+		.container-title, .wish-title {
+			padding-top: 3px;
+			.price {
+				float: right;
+				color: $darkpurple;
+				font-weight: 600;
+			}
+		}
+	}
+}
+
+// Reserve
+.reserve {
+	.card {
+		height: 350px;
+	}
+}
+
+.reserve button {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    background-color: $darkyellow;
+    text-shadow: $textshadow;
+    color: white;
+    border: none;
+}
+
+.reserved button {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    background-color: $darkpurple;
+    color: white;
+    border: none;
+}
+
+// footer 
+.footer {
+	background-color: $bg-color;
+	color: $font-color;
+	padding: 50px 0; 
+	margin: 0 auto;
+	text-align: center;
+
+	a {
+		color: $darkpurple;
+		font-weight: 600;
+	}
+
+	.contact {
+		padding-bottom: 15px; 
+
+		h4 {
+			color: $darkpurple;
+			font-weight: 500;
+			padding-bottom: 10px;
+		}
+	}
+
+	.disclaimer {
+		p {
+			border-top: 1px solid $font-color;
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
+			padding-top: 10px;
+		}
+	}
+}
+
+// Modals
+.modal-content{
+	width: 100%;
+	.images{
+		width: 45%;
+		float: left;
+		.image {
+			width: 100%;
+			height: 170px;
+		}
+	}
+	.forms{
+		overflow: hidden;
+		width: 50%;
+		float: right;
+	}
+}
+
+.uploaders img{
+    width: 100%;
+}
+
+.cta-update-wish, .cta-btn-yellow {
+	background-color: $darkyellow;
+	color: white;
+	text-shadow: $textshadow;
+}
+
+
+.cta-delete-wish {
+	background-color: $darkpurple;
+	color: white;
+	margin: 0 10px;
+}
+
+.cta-delete-wish, .cta-update-wish {
+	float: right;
+	display: inline;
+}
+
+.hidephoto {
+    display:none;
+}
+
+
