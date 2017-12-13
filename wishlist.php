@@ -84,6 +84,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel=stylesheet href="styling/style.css">
+		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
+		<link rel="icon" href="assets/fav.png" type="image/x-icon">
 		<script>var wishes = <?= $jsonwishes ?>;</script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110950639-1"></script>
