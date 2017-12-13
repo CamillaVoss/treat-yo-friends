@@ -56,7 +56,7 @@
 	 	<div class="row justify-content-around">
 		  	<div class="col-xs">
 			  	<div class="card">
-				  	<img src="assets/store.svg" alt="store">
+				  	<img class="card-img-top" src="assets/store.svg" alt="store">
 				  	<div class="container">
 				    	<h4>Store wishes</h4> 
 				    	<p>Store as many wishes as you want!</p> 
@@ -65,7 +65,7 @@
 		  	</div>
 		 <div class="col-xs">
 	  		<div class="card">
-			  	<img src="assets/share.svg" alt="share">
+			  	<img class="card-img-top" src="assets/share.svg" alt="share">
 			  	<div class="container">
 			    	<h4>Share with friends</h4> 
 			    	<p>Share your wishes with all of your friends and family, to make sure tha they will treat yo with a perfect gift!</p> 
@@ -74,7 +74,7 @@
 		 </div>
 		 <div class="col-xs">
 		 	<div class="card">
-			  	<img src="assets/reserve.svg" alt="reserve">
+			  	<img class="card-img-top" src="assets/reserve.svg" alt="reserve">
 			  	<div class="container">
 			    	<h4>Reserve gifts</h4> 
 			    	<p>Visiting someone elses wish list? Reserve the gift you want to treat a friend with, to make sure that no one else will buy the same gift!</p> 
