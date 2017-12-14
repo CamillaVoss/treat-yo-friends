@@ -11,7 +11,7 @@
 <!-- Wish list -->
 <div class="list">
 	<div class="list-header">
-    	<h1> Your wish lists </h1>
+    	<h2> Your wish lists </h2>
     </div>
     <div class="container">
 	 	<div class="row justify-content-around">

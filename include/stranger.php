@@ -13,7 +13,7 @@
 
 <div class="wish">
 	<div class="wish-header">
-		<h1> Wishes </h1>
+		<h2> Wishes </h2>
 	</div>
 	<div class="container">
 		<div class="row justify-content-around">

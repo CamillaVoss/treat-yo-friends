@@ -64,7 +64,7 @@ body * {
     width: 95%;
     margin: 0 auto;
     text-align: center; }
-  .about h1, .list h1, .wish h1 {
+  .about h2, .list h2, .wish h2 {
     color: #440460;
     padding-bottom: 30px;
     font-weight: 600; }

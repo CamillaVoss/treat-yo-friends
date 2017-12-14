@@ -50,7 +50,7 @@
 <!-- About -->
 <div class="about">
 	<div class="about-header">
-    	<h1> Why should you use Treat Yo Friends? </h1>
+    	<h2> Why should you use Treat Yo Friends? </h2>
     </div>
     <div class="container">
 	 	<div class="row justify-content-around">

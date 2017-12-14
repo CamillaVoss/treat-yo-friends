@@ -77,11 +77,12 @@
 	}
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Wish list</title>
+		<title>Treat Yo Friends | Your digital wish list</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Store your wishes in the cloud | Share them with all of your friends | Reserve gifts from others wish list">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel=stylesheet href="styling/style.css">
 		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">

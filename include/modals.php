@@ -90,7 +90,7 @@
             <form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
                <div class="images">
                   <div class="uploaders" id="uploader2" onclick="$('#filePhoto').click()">
-                     <img src="assets/image.svg"/>
+                     <img src="assets/image.svg" alt="upload image"/>
                   </div>
                   <input type="file" name="listimage" class="hidephoto" id="filePhoto" />
                </div>
@@ -124,7 +124,7 @@
             <form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post" enctype="multipart/form-data">
                <div class="images">
                   <div id="uploader" class="uploaders" onclick="$('#wishPhoto').click()">
-                     <img src="assets/image.svg"/>
+                     <img src="assets/image.svg" alt="Upload image" />
                   </div>
                   <input type="file" name="wishimage" class="hidephoto" id="wishPhoto" />
                </div>

@@ -3,20 +3,24 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<title>Treat Yo Friends</title>
+		<title>Treat Yo Friends | Your digital wish list</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Store your wishes in the cloud | Share them with all of your friends | Reserve gifts from others wish list">
 		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
 		<link rel="icon" href="assets/fav.png" type="image/x-icon">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel=stylesheet href="styling/style.css">
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110950639-1"></script>
 		<script>
-	    	window.dataLayer = window.dataLayer || [];
-	    	function gtag(){dataLayer.push(arguments);}
-	    	gtag('js', new Date());
-			gtag('config', 'UA-110950639-1');
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-110950639-1');
 		</script>
 	</head>
 	<body>
