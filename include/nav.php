@@ -17,10 +17,10 @@
           </li>
         <?php } else { ?>
           <li class="nav-item">
-            <a class="nav-link" href="none" data-toggle="modal" data-target="#signupModal" style="color: #484141;"><img src="assets/plus.svg" width="20" alt="logo"> Sign Up</a>
+            <a class="nav-link" href="" data-toggle="modal" data-target="#signupModal" style="color: #484141;"><img src="assets/plus.svg" width="20" alt="logo"> Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="none" data-toggle="modal" data-target="#loginModal" style="color: #484141;"><img src="assets/profile.svg" width="20" alt="logo"> Log In</a>
+            <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal" style="color: #484141;"><img src="assets/profile.svg" width="20" alt="logo"> Log In</a>
           </li>
         <?php } ?>
     </ul>

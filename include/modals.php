@@ -14,7 +14,6 @@
       </div>
    </div>
 </div>
-
 <!-- Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
    <div class="modal-dialog" role="document">
@@ -53,7 +52,6 @@
       </div>
    </div>
 </div>
-
 <!-- Login Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
    <div class="modal-dialog" role="document">
@@ -148,11 +146,9 @@
                   <div>
                      <button type="submit" name="cmd_wish" value="create_wish" class="btn cta-btn-yellow">Create</button>
                   </div>
-               </form>
-            </div>
+               </div>
+            </form>
          </div>
       </div>
    </div>
 </div>
-
-

@@ -5,6 +5,6 @@
 		<p>- Write an email to us <a href="mailto:contact@treatyofriends.com" target="_top">here!</a></p>
 	</div>
 	<div class="disclaimer">
-		<p> Copyright 2017 © Camilla Voss | <a href="none" data-toggle="modal" data-target="#disclaimerModal">Disclaimer</a></p>
+		<p> Copyright 2017 © Camilla Voss | <a href="" data-toggle="modal" data-target="#disclaimerModal">Disclaimer</a></p>
 	</div>
 </div>

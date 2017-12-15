@@ -2,7 +2,6 @@
 	// $reserved = false;
 	// $ruid = 0;
 ?>
-
 <div class="hero">
 	<div class="hero-title">
 		<h1> <?=$wltitle?> </h1>
@@ -11,7 +10,6 @@
 		<h4>Owner: <?=$fn?></h4>
 	</div>
 </div>
-
 <div class="wish reserve">
 	<div class="wish-header">
 		<h2> Wishes </h2>
@@ -22,15 +20,15 @@
 			<div class="col-xs">
 				<div class="card">
 					<div data-toggle="modal" data-target="#wishModalupdate<?=$wish["id"]?>">
-						<?php 
-			  			if (!empty($wish["image"])) { ?>
-			  				<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+						<?php
+						if (!empty($wish["image"])) { ?>
+						<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
 						</div>
-			  			<?php } 
-			  			else { ?>
-						  	<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
-						  	</div>
-					  	<?php } ?>
+						<?php }
+						else { ?>
+						<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+						</div>
+						<?php } ?>
 						<div class="container">
 							<div>
 								<h4><?=$wish["brand"]?></h4>
@@ -42,35 +40,34 @@
 						</div>
 					</div>
 					<?php
-
 					?>
-					<?php 	
+					<?php
 					if (!empty($wish['ruid'])) {
-						if ($wish['ruid'] == $_SESSION['userID']) {?>
-							<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
-								<div class="reserved">
-									<button type="submit" name="cmd_unreserve" value="<?=$wish["id"]?>">Reserved by you</button>
-								</div>
-							</form>
-						<?php } 
-							else { ?>
-								<div class="reserved">
-									<button disabled>Reserved by <?=$wish["rufn"]?></button>
-								</div>
+					if ($wish['ruid'] == $_SESSION['userID']) {?>
+					<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
+						<div class="reserved">
+							<button type="submit" name="cmd_unreserve" value="<?=$wish["id"]?>">Reserved by you</button>
+						</div>
+					</form>
+					<?php }
+					else { ?>
+					<div class="reserved">
+						<button disabled>Reserved by <?=$wish["rufn"]?></button>
+					</div>
 					<?php	}
-					 } 	
-					 else { ?>
-				 		<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
-					 		<div class="reserve">
-								<button type="submit" name="cmd_reserve" value="<?=$wish["id"]?>">Treat yo friend!</button>
-							</div>
-						</form>
+					}
+					else { ?>
+					<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
+						<div class="reserve">
+							<button type="submit" name="cmd_reserve" value="<?=$wish["id"]?>">Treat yo friend!</button>
+						</div>
+					</form>
 					<?php } ?>
 				</div>
 			</div>
 			
 			<!-- View wish Modal -->
-			<div class="modal fade" id="wishModalupdate<?=$wish["id"]?>"" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal fade" id="wishModalupdate<?=$wish["id"]?>" tabindex="-1" role="dialog" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-body">
@@ -80,15 +77,15 @@
 								</div>
 								<div class="images">
 									<div class="uploaders">
-										<?php 
-							  			if (!empty($wish["image"])) { ?>
-							  				<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+										<?php
+										if (!empty($wish["image"])) { ?>
+										<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
 										</div>
-							  			<?php } 
-							  			else { ?>
-										  	<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
-										  	</div>
-									  	<?php } ?>
+										<?php }
+										else { ?>
+										<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+										</div>
+										<?php } ?>
 									</div>
 								</div>
 								<div class="forms">
@@ -106,15 +103,15 @@
 									</div>
 									<div class="form-group">
 										<label>Price</label>
-										<input type="text" name="price" class="form-control" value="<?=$wish["price"]?>" disabled>
+										<input type="text" name="price" class="form-control" value=" <?=$wish["price"]?>" disabled>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?php } ?>
-		</div>
+		<?php } ?>
 	</div>
+</div>
 </div>

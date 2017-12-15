@@ -1,7 +1,6 @@
 <?php
 	
 ?>
-
 <div class="hero">
 	<div class="hero-title">
 		<h1> <?=$wltitle?> </h1>
@@ -10,7 +9,6 @@
 		<h4>Owner: <?=$fn?></h4>
 	</div>
 </div>
-
 <div class="wish">
 	<div class="wish-header">
 		<h2> Wishes </h2>
@@ -21,15 +19,15 @@
 			<div class="col-xs">
 				<div class="card">
 					<div data-toggle="modal" data-target="#wishModalupdate<?=$wish["id"]?>">
-						<?php 
-			  			if (!empty($wish["image"])) { ?>
-			  				<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+						<?php
+						if (!empty($wish["image"])) { ?>
+						<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
 						</div>
-			  			<?php } 
-			  			else { ?>
-						  	<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
-						  	</div>
-					  	<?php } ?>
+						<?php }
+						else { ?>
+						<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+						</div>
+						<?php } ?>
 						<div class="container">
 							<div>
 								<h4><?=$wish["brand"]?></h4>
@@ -54,15 +52,15 @@
 								</div>
 								<div class="images">
 									<div class="uploaders">
-										<?php 
-							  			if (!empty($wish["image"])) { ?>
-							  				<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+										<?php
+										if (!empty($wish["image"])) { ?>
+										<div class="image" style="background-image: url('uploads/<?=$wish["image"]?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
 										</div>
-							  			<?php } 
-							  			else { ?>
-										  	<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
-										  	</div>
-									  	<?php } ?>
+										<?php }
+										else { ?>
+										<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+										</div>
+										<?php } ?>
 									</div>
 								</div>
 								<div class="forms">
@@ -82,8 +80,8 @@
 										<label>Price</label>
 										<input type="text" name="price" class="form-control" value="<?=$wish["price"]?>" disabled>
 									</div>
-								</form>
-							</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
