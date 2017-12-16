@@ -260,7 +260,10 @@ body * {
 .cta-delete-wish {
 	background-color: $darkpurple;
 	color: white;
-	margin: 0 10px;
+}
+
+.cta-update-wish {
+	margin: 0 0 10px 10px;
 }
 
 .cta-delete-wish, .cta-update-wish {

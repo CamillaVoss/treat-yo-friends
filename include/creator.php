@@ -48,7 +48,7 @@
 					<input type="hidden" name="id" id="wishUpdateId"/>
 					<div class="images">
 						<div class="uploaders" id="wishUpdateUploader" onclick="$('#wishUpdatePhoto').click()">
-							<img alt="Uplad image" src="assets/image.svg"/>
+							<img alt="Upload image" src="assets/image.svg"/>
 						</div>
 						<input type="file" name="updateimage" class="hidephoto" id="wishUpdatePhoto" />
 					</div>
@@ -84,19 +84,25 @@
 <script>
 	var imageLoaderUpdate = document.getElementById('wishUpdatePhoto');
 	imageLoaderUpdate.addEventListener('change', handleImageUpdate('#wishUpdateUploader img'), false);
+
 	function handleImageUpdate(selector) {
-return function(e) {
-var reader = new FileReader();
-reader.onload = function (event) {
-console.log(event);
-$(selector).attr('src',event.target.result);
-}
-reader.readAsDataURL(e.target.files[0]);
-}
-}
+		return function(e) {
+			var reader = new FileReader();
+			reader.onload = function (event) {
+				console.log(event);
+				$(selector).attr('src',event.target.result);
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		}
+	}
+	
 function showWishUpdateModal(wish) {
 	$('#wishUpdateId').val(wish.id);
-	$('#wishUpdateUploader img').attr('src', 'uploads/'+wish.image);
+	if (wish.image) {
+		$('#wishUpdateUploader img').attr('src', 'uploads/'+wish.image);
+	} else {
+		$('#wishUpdateUploader img').attr('src', 'assets/image.svg');
+	}
 	$('#wishUpdateBrand').val(wish.brand);
 	$('#wishUpdateProduct').val(wish.product);
 	$('#wishUpdateComment').val(wish.comment);

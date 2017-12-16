@@ -1,7 +1,7 @@
 body * {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   color: #484141; }
 
 .clearfix {
@@ -172,8 +172,10 @@ body * {
 
 .cta-delete-wish {
   background-color: #440460;
-  color: white;
-  margin: 0 10px; }
+  color: white; }
+
+.cta-update-wish {
+  margin: 0 0 10px 10px; }
 
 .cta-delete-wish, .cta-update-wish {
   float: right;
