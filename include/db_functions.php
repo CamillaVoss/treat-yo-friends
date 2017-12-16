@@ -132,9 +132,28 @@
 
 			// if everything is ok, try to upload file
 			if ($uploadOk) {
+				$maxDim = 460;
+		        $file_name = $_FILES['listimage']['tmp_name'];
+		        list($width, $height, $type, $attr) = getimagesize( $file_name );
+		        if ( $width > $maxDim || $height > $maxDim ) {
+		            $ratio = $width/$height;
+		            if( $ratio > 1) {
+		                $new_width = $maxDim;
+		                $new_height = $maxDim/$ratio;
+		            } else {
+		                $new_width = $maxDim*$ratio;
+		                $new_height = $maxDim;
+		            }
+		            $src = imagecreatefromstring( file_get_contents( $file_name ) );
+		            $dst = imagecreatetruecolor( $new_width, $new_height );
+		            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+		            imagedestroy( $src );
+		            imagepng( $dst, $file_name );
+		            imagedestroy( $dst );
+		        }
             	$target_dir = "uploads/";
             	$target_file = "wl{$wlid}.{$imageFileType}";
-			    if (move_uploaded_file($tmp_name, "{$target_dir}{$target_file}")) {
+			    if (move_uploaded_file($file_name, "{$target_dir}{$target_file}")) {
 					$sql = 'UPDATE wishlists
 							SET image = ?
 		                    WHERE wishlistID = ?';
@@ -221,6 +240,16 @@
                 die("delete wishes");
             };
 
+            $sql = 'DELETE FROM savedlists 
+                    WHERE savedlist_wishlistID = ?';
+            $stmt = $con->prepare($sql);
+            $stmt-> bind_param('i', $wlid);
+
+            if (!$stmt->execute()) {
+                $con->rollback();
+                die("delete savedlists");
+            };
+
 
             $sql = 'DELETE FROM wishlists 
             		WHERE wishlistID = ?';
@@ -236,7 +265,8 @@
 
 
 			for ($i = 0; $i < count($images); $i++) {
-            	unlink('uploads/'.$images[$i]);				
+				if (!empty($images[$i]))
+					unlink('uploads/'.$images[$i]);		
 			};
 
 			if (!empty($image)) {
@@ -266,6 +296,8 @@
 
 			$comment = filter_input(INPUT_POST, 'comment');
 
+			$link = filter_input(INPUT_POST, 'link');
+
 			$image = basename($_FILES["wishimage"]["name"]);	
 
 			$wlid = filter_input(INPUT_GET, 'wishlistid', FILTER_VALIDATE_INT)
@@ -291,19 +323,38 @@
             }
     
 			require_once('db_con.php');
-            $sql = 'INSERT INTO wishes(brand, product, price, comments, wishlists_wishlistID)
-                    VALUES (?, ?, ?, ?, ?)';
+            $sql = 'INSERT INTO wishes(brand, product, price, href, comments, wishlists_wishlistID)
+                    VALUES (?, ?, ?, ?, ?, ?)';
             $stmt = $con->prepare($sql);
-            $stmt->bind_param('ssssi', $brand, $product, $price, $comment, $wlid);
+            $stmt->bind_param('sssssi', $brand, $product, $price, $link, $comment, $wlid);
             $stmt->execute();
             $wid = $stmt->insert_id;
             $stmt->close();
 
 			// if everything is ok, try to upload file
 			if ($uploadOk) {
+				$maxDim = 460;
+		        $file_name = $_FILES['wishimage']['tmp_name'];
+		        list($width, $height, $type, $attr) = getimagesize( $file_name );
+		        if ( $width > $maxDim || $height > $maxDim ) {
+		            $ratio = $width/$height;
+		            if( $ratio > 1) {
+		                $new_width = $maxDim;
+		                $new_height = $maxDim/$ratio;
+		            } else {
+		                $new_width = $maxDim*$ratio;
+		                $new_height = $maxDim;
+		            }
+		            $src = imagecreatefromstring( file_get_contents( $file_name ) );
+		            $dst = imagecreatetruecolor( $new_width, $new_height );
+		            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+		            imagedestroy( $src );
+		            imagepng( $dst, $file_name );
+		            imagedestroy( $dst );
+		        }
             	$target_dir = "uploads/";
             	$target_file = "{$wid}.{$imageFileType}";
-			    if (move_uploaded_file($tmp_name, "{$target_dir}{$target_file}")) {
+			    if (move_uploaded_file($file_name, "{$target_dir}{$target_file}")) {
 					$sql = 'UPDATE wishes
 							SET image = ?
 		                    WHERE wishID = ?';
@@ -361,7 +412,10 @@
             };
 
             $con->commit();
-            unlink('uploads/'.$image);
+            if(!empty($image)) {
+            	unlink('uploads/'.$image);
+            }
+            
 
 
 
@@ -386,6 +440,8 @@
 				or die('price');
 
 			$comment = filter_input(INPUT_POST, 'comment');
+
+			$link = filter_input(INPUT_POST, 'link');
 
 			$wid = filter_input(INPUT_POST, 'id')
                     or die('could not get wish list id');
@@ -413,13 +469,32 @@
 
 			require_once('db_con.php');
             $sql = 'UPDATE wishes
-                    SET brand = ?, product = ?, price = ?, comments = ?
+                    SET brand = ?, product = ?, price = ?, href = ?, comments = ?
                     WHERE wishID = ?';
             $stmt = $con->prepare($sql);
-            $stmt->bind_param('ssssi', $brand, $product, $price, $comment, $wid);
+            $stmt->bind_param('sssssi', $brand, $product, $price, $link, $comment, $wid);
             $stmt->execute();
 
             if ($uploadOk) {
+            	$maxDim = 460;
+		        $file_name = $_FILES['updateimage']['tmp_name'];
+		        list($width, $height, $type, $attr) = getimagesize( $file_name );
+		        if ( $width > $maxDim || $height > $maxDim ) {
+		            $ratio = $width/$height;
+		            if( $ratio > 1) {
+		                $new_width = $maxDim;
+		                $new_height = $maxDim/$ratio;
+		            } else {
+		                $new_width = $maxDim*$ratio;
+		                $new_height = $maxDim;
+		            }
+		            $src = imagecreatefromstring( file_get_contents( $file_name ) );
+		            $dst = imagecreatetruecolor( $new_width, $new_height );
+		            imagecopyresampled( $dst, $src, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+		            imagedestroy( $src );
+		            imagepng( $dst, $file_name );
+		            imagedestroy( $dst );
+		        }
             	$target_dir = "uploads/";
             	$target_file = "{$wid}.{$imageFileType}";
 
@@ -431,9 +506,10 @@
 				$stmt->execute();
 				$stmt->bind_result($oldimage);
 				while ($stmt->fetch()) {};
-				unlink('uploads/'.$oldimage);
+				if (!empty($oldimage))
+					unlink('uploads/'.$oldimage);
 
-			    if (move_uploaded_file($tmp_name, "{$target_dir}{$target_file}")) {
+			    if (move_uploaded_file($file_name, "{$target_dir}{$target_file}")) {
 					$sql = 'UPDATE wishes
 							SET image = ?
 		                    WHERE wishID = ?';
@@ -485,5 +561,32 @@
         $stmt->bind_param('ii', $ruid, $wid);
         $stmt->execute();
 	}
+	
+	// SAVE LISTS
+	if ($cmd = filter_input(INPUT_POST, 'cmd_star')) {
+		$wlid = filter_input(INPUT_POST, 'id');
+		$uid = $_SESSION['userID'];
+
+		require_once('db_con.php');
+        $sql = 'INSERT INTO savedlists(savedlist_wishlistID, savedlist_userID)
+                VALUES (?, ?)';
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param('ii', $wlid, $uid);
+        $stmt->execute();
+	}
+
+	// REMOVE LISTS
+	if ($cmd = filter_input(INPUT_POST, 'cmd_unstar')) {
+		$wlid = filter_input(INPUT_POST, 'id');
+		$uid = $_SESSION['userID'];
+
+		require_once('db_con.php');
+        $sql = 'DELETE FROM savedlists
+                WHERE savedlist_userID = ?
+                AND savedlist_wishlistID = ?';           
+        $stmt = $con->prepare($sql);
+        $stmt->bind_param('ii', $uid, $wlid);
+        $stmt->execute(); 
+	}	
 
 ?>

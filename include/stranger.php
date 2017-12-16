@@ -65,20 +65,24 @@
 								</div>
 								<div class="forms">
 									<div class="form-group">
-										<label>Brand</label>
-										<input type="text" name="brand" class="form-control" value="<?=$wish["brand"]?>" disabled >
+										<h4>Brand</h4>
+										<p><?=$wish["brand"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Product</label>
-										<input type="text" name="product" class="form-control" value="<?=$wish["product"]?>" disabled>
+										<h4>Product</h4>
+										<p><?=$wish["product"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Comments</label>
-										<textarea class="form-control" name="comment" rows="3" value="<?=$wish["comment"]?>" disabled></textarea>
+										<h4>Comments</h4>
+										<p><?=$wish["comment"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Price</label>
-										<input type="text" name="price" class="form-control" value="<?=$wish["price"]?>" disabled>
+										<h4>Link</h4>
+										<a href="<?=$wish["link"]?>" target="blank"><?=$wish["link"]?></a>
+									</div>
+									<div class="form-group">
+										<h4>Price</h4>
+										<p><?=$wish["price"]?></p>
 									</div>
 								</div>
 							</form>

@@ -22,3 +22,50 @@
         }
     });
 </script>
+
+<script>
+    var imageLoaderUpdate = document.getElementById('wishUpdatePhoto');
+    imageLoaderUpdate.addEventListener('change', handleImageUpdate('#wishUpdateUploader img'), false);
+
+    function handleImageUpdate(selector) {
+        return function(e) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                console.log(event);
+                $(selector).attr('src',event.target.result);
+            }
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    }
+    
+function showWishUpdateModal(wish) {
+    $('#wishUpdateId').val(wish.id);
+    if (wish.image) {
+        $('#wishUpdateUploader img').attr('src', 'uploads/'+wish.image);
+    } else {
+        $('#wishUpdateUploader img').attr('src', 'assets/image.svg');
+    }
+    $('#wishUpdateBrand').val(wish.brand);
+    $('#wishUpdateProduct').val(wish.product);
+    $('#wishUpdateComment').val(wish.comment);
+    $('#wishUpdatePrice').val(wish.price);
+    $('#wishUpdateLink').val(wish.link);
+    $('#wishModalupdate').modal('show');
+}
+
+function showWishModal(wish) {
+    $('#wishUpdateId').val(wish.id);
+    if (wish.image) {
+        $('#wishUpdateUploader img').attr('src', 'uploads/'+wish.image);
+    } else {
+        $('#wishUpdateUploader img').attr('src', 'assets/image.svg');
+    }
+    $('#wishUpdateBrand').val(wish.brand);
+    $('#wishUpdateProduct').val(wish.product);
+    $('#wishUpdateComment').val(wish.comment);
+    $('#wishUpdatePrice').val(wish.price);
+    $('#wishModalupdate').modal('show');
+}
+</script>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a34f0b58a4cacbb"></script>

@@ -28,6 +28,8 @@ body * {
     padding-top: 30px;
     margin: 0 auto;
     text-align: center; }
+  .hero .star {
+    font-size: 1.5rem; }
   .hero .cta h1, .hero .cta p {
     color: white; }
   .hero .cta .signup {
@@ -90,6 +92,9 @@ body * {
   .list .card .image {
     width: 100%;
     height: 150px; }
+
+.list-bottom {
+  padding: 0; }
 
 .wish .card {
   height: 300px; }
@@ -183,3 +188,10 @@ body * {
 
 .hidephoto {
   display: none; }
+
+#atstbx {
+  text-align: center;
+  padding-bottom: 20px; }
+
+.at-share-btn-elements {
+  display: inline-block; }

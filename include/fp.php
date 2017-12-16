@@ -61,3 +61,48 @@
 		</div>
 	</div>
 </div>
+
+<!-- Starred Wish list -->
+<div class="list list-bottom">
+	<div class="list-header">
+    	<h2> Saved lists </h2>
+    </div>
+    <div class="container">
+	 	<div class="row justify-content-around">
+	 		<?php
+			require_once('db_con.php');	
+			$uid = $_SESSION['userID'];
+
+
+			$sql = 'SELECT wl.wishlistID, wl.title, wl.image
+					FROM wishlists wl, savedlists sl
+					WHERE sl.savedlist_wishlistID = wl.wishlistID
+					AND sl.savedlist_userID = ?';
+			$stmt = $con->prepare($sql);
+			$stmt->bind_param('i', $uid);
+			$stmt->execute();
+			$stmt->bind_result($wlid, $wltitle, $wlimage);
+
+			while ($stmt->fetch()) { ?>
+				<div class="col-xs">
+					<a href="wishlist.php?wishlistid=<?=$wlid?>">
+				  		<div class="card">
+				  			<?php 
+				  			if (!empty($wlimage)) { ?>
+				  				<div class="image" style="background-image: url('uploads/<?=$wlimage?>'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+						  		</div>
+				  			<?php } 
+				  			else { ?>
+							  	<div class="image" style="background-image: url('assets/list-<?=rand(1,2)?>.svg'); background-repeat: no-repeat;	background-size: cover;	background-position: center;">
+							  	</div>
+						  	<?php } ?>
+						  	<div class="container">
+						    	<h4><?=$wltitle?></h4> 
+						  	</div>
+						</div>
+					</a>
+				</div>
+		<?php } ?> 
+		</div>
+	</div>
+</div>

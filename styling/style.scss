@@ -52,6 +52,10 @@ body * {
 		text-align: center;
    	}
 
+   	.star {
+   		font-size: 1.5rem;
+   	}
+
    	.cta {
 
    		h1, p {;
@@ -141,6 +145,10 @@ body * {
 			height: 150px;
 		}
 	}
+}
+
+.list-bottom {
+	padding: 0;
 }
 
 // wishes
@@ -275,4 +283,13 @@ body * {
     display:none;
 }
 
+// Adthis
+#atstbx {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.at-share-btn-elements {
+	display: inline-block;
+}
 

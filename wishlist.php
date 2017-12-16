@@ -34,7 +34,7 @@
 		
 	$stmt3->close();
 	
-	$sql = 'SELECT w.wishID, w.brand, w.product, w.price, w.comments, w.image
+	$sql = 'SELECT w.wishID, w.brand, w.product, w.price, w.href, w.comments, w.image
 			FROM wishlists wl, wishes w
 			WHERE w.wishlists_wishlistID = wl.wishlistID
 			AND w.wishlists_wishlistID = ?
@@ -42,7 +42,7 @@
 	$stmt = $con->prepare($sql);
 	$stmt->bind_param('i', $wlid);
 	$stmt->execute();
-	$stmt->bind_result($wid, $wbrand, $wproduct, $wprice, $wcomment, $wimage);
+	$stmt->bind_result($wid, $wbrand, $wproduct, $wprice, $wlink, $wcomment, $wimage);
 	$wishes = array();
 	$ids = array();
 	while ($stmt->fetch()) {
@@ -52,6 +52,7 @@
 			"brand" => $wbrand,
 			"product" => $wproduct,
 			"price" => $wprice,
+			"link" => $wlink,
 			"comment" => $wcomment,
 			"image" => $wimage,
 		));
@@ -83,8 +84,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Store your wishes in the cloud | Share them with all of your friends | Reserve gifts from others wish list">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel=stylesheet href="styling/style.css">
 		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
 		<link rel="icon" href="assets/fav.png" type="image/x-icon">
 		<script>var wishes = <?= $jsonwishes ?>;</script>
@@ -113,5 +112,8 @@
 		?>
 		<?php include 'include/footer.php';?>
 		<?php include 'include/modals.php';?>
+		<?php include 'include/scripts.php';?>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel=stylesheet href="styling/style.css">
 	</body>
 </html>

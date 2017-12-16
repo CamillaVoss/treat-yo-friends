@@ -1,6 +1,15 @@
 <?php
-	// $reserved = false;
-	// $ruid = 0;
+	require_once('db_con.php');	
+		$uid = $_SESSION['userID'];
+		$sql = 'SELECT sl.savedlistID
+				FROM wishlists wl, savedlists sl
+				WHERE sl.savedlist_wishlistID = wl.wishlistID
+				AND sl.savedlist_userID = ?';
+		$stmt = $con->prepare($sql);
+		$stmt->bind_param('i', $uid);
+		$stmt->execute();
+		$stmt->bind_result($slid);
+		while ($stmt->fetch()) {};
 ?>
 <div class="hero">
 	<div class="hero-title">
@@ -9,6 +18,25 @@
 	<div class="cta cta-create">
 		<h4>Owner: <?=$fn?></h4>
 	</div>
+	<?php if (!empty($slid)) { ?>
+	<div class="cta cta-create">
+		<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
+           <div style="display: none;">
+              <input type="text" name="id" value="<?=$wlid?>">
+           </div>
+           	<button class="btn cta-btn-yellow star" type="submit" name="cmd_unstar" value="unstar_list">Remove list</button>
+        </form>
+	</div>
+	<?php } else { ?>
+	<div class="cta cta-create">
+		<form action="wishlist.php?<?=$_SERVER['QUERY_STRING']?>" method="post">
+           <div style="display: none;">
+              <input type="text" name="id" value="<?=$wlid?>">
+           </div>
+           	<button class="btn cta-btn-yellow star" type="submit" name="cmd_star" value="star_list">Save list</button>
+        </form>
+	</div>
+	<?php } ?>
 </div>
 <div class="wish reserve">
 	<div class="wish-header">
@@ -90,20 +118,24 @@
 								</div>
 								<div class="forms">
 									<div class="form-group">
-										<label>Brand</label>
-										<input type="text" name="brand" class="form-control" value="<?=$wish["brand"]?>" disabled >
+										<h4>Brand</h4>
+										<p><?=$wish["brand"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Product</label>
-										<input type="text" name="product" class="form-control" value="<?=$wish["product"]?>" disabled>
+										<h4>Product</h4>
+										<p><?=$wish["product"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Comments</label>
-										<textarea class="form-control" name="comment" rows="3" value="<?=$wish["comment"]?>" disabled></textarea>
+										<h4>Comments</h4>
+										<p><?=$wish["comment"]?></p>
 									</div>
 									<div class="form-group">
-										<label>Price</label>
-										<input type="text" name="price" class="form-control" value=" <?=$wish["price"]?>" disabled>
+										<h4>Link</h4>
+										<a href="<?=$wish["link"]?>" target="blank"><?=$wish["link"]?></a>
+									</div>
+									<div class="form-group">
+										<h4>Price</h4>
+										<p><?=$wish["price"]?></p>
 									</div>
 								</div>
 							</form>
@@ -111,7 +143,7 @@
 					</div>
 				</div>
 			</div>
-		<?php } ?>
+			<?php } ?>
+		</div>
 	</div>
-</div>
 </div>

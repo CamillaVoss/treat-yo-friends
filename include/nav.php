@@ -13,14 +13,14 @@
             <a class="nav-link" href="index.php" style="color: #484141;"> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout.php" style="color: #484141;"><img src="assets/profile.svg" height="19" style="margin-bottom: 5px; margin-right: 5px;" alt="logo"> Log Out</a>
+            <a class="nav-link" href="logout.php" style="color: #484141;"><img src="assets/profile.svg" height="19" width="19" style="margin-bottom: 5px; margin-right: 5px;" alt="logo"> Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="modal" data-target="#signupModal" style="color: #484141;"><img src="assets/plus.svg" width="20" alt="logo"> Sign Up</a>
+            <a class="nav-link" href="" data-toggle="modal" data-target="#signupModal" style="color: #484141;"><img src="assets/plus.svg" width="20" height="20" alt="logo"> Sign Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal" style="color: #484141;"><img src="assets/profile.svg" width="20" alt="logo"> Log In</a>
+            <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal" style="color: #484141;"><img src="assets/profile.svg" width="20" height="20" alt="logo"> Log In</a>
           </li>
         <?php } ?>
     </ul>
