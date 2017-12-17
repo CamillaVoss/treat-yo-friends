@@ -86,6 +86,8 @@
 		<meta name="description" content="Store your wishes in the cloud | Share them with all of your friends | Reserve gifts from others wish list">
 		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
 		<link rel="icon" href="assets/fav.png" type="image/x-icon">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+		<link rel=stylesheet href="styling/style.css">
 		<script>var wishes = <?= $jsonwishes ?>;</script>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110950639-1"></script>
@@ -113,7 +115,5 @@
 		<?php include 'include/footer.php';?>
 		<?php include 'include/modals.php';?>
 		<?php include 'include/scripts.php';?>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel=stylesheet href="styling/style.css">
 	</body>
 </html>
