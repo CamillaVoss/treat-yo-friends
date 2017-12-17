@@ -9,6 +9,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="Store your wishes in the cloud | Share them with all of your friends | Reserve gifts from others wish list">
+		<meta name="google-signin-client_id" content="990532978279-c8pvu81b7jl7gil79n6nvctd4r86lfc4.apps.googleusercontent.com">
 		<link rel="shortcut icon" href="assets/fav.png" type="image/x-icon">
 		<link rel="icon" href="assets/fav.png" type="image/x-icon">
 		<link rel=stylesheet href="styling/style.css">

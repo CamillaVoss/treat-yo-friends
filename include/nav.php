@@ -13,7 +13,7 @@
             <a class="nav-link" href="index.php" style="color: #484141;"> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="logout.php" style="color: #484141;"><img src="assets/profile.svg" height="19" width="19" style="margin-bottom: 5px; margin-right: 5px;" alt="logo"> Log Out</a>
+            <a class="nav-link" href="logout.php" onclick="signOut();"style="color: #484141;"><img src="assets/profile.svg" height="19" width="19" style="margin-bottom: 5px; margin-right: 5px;" alt="logo"> Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">

@@ -51,7 +51,9 @@
 			or die('You must enter a valid password');
 
 		require_once('db_con.php');	
-		$sql = 'SELECT userID, pwhashed FROM users WHERE username = ?';
+		$sql = 'SELECT userID, pwhashed 
+				FROM users 
+				WHERE username = ?';
 		$stmt = $con->prepare($sql);
 		$stmt->bind_param('s', $em);
 		$stmt->execute();
@@ -68,6 +70,42 @@
 		} else {
 			$login_failure = true;
 	 	}				
+	}
+
+	// LOGIN WITH GOOGLE
+	require_once 'vendor/autoload.php';
+	if (filter_input(INPUT_POST, 'submitid')) {
+		$id_token = filter_input(INPUT_POST, 'id_token');
+		require_once('db_con.php');	
+		$sql = 'SELECT userID 
+				FROM users 
+				WHERE id_token = ?';
+		$stmt = $con->prepare($sql);
+		$stmt->bind_param('s', $id_token);
+		$stmt->execute();
+		$stmt->bind_result($uid);
+		while ($stmt->fetch()) {}
+
+		if (!empty($uid)) {
+			$_SESSION['userID'] = $uid;
+			header("Location: index.php");
+			die();
+		} else {
+			$em = filter_input(INPUT_POST,'email')
+			or die('You must enter a valid email');
+
+			$fn = filter_input(INPUT_POST,'firstname')
+			or die('You must enter a valid name');
+
+			$ln = filter_input(INPUT_POST,'lastname')
+			or die('You must enter a valid name');
+
+			$sql = 'INSERT INTO users (username, firstname, lastname, id_token) VALUES (?, ?, ?, ?)';
+			$stmt = $con->prepare($sql);
+			$stmt->bind_param('ssss', $em, $fn, $ln, $id_token);
+			$stmt->execute();
+			header("Location: index.php");
+		}
 	}
 
 	// CREATE WISH LIST

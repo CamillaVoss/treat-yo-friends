@@ -14,6 +14,16 @@
       </div>
    </div>
 </div>
+
+<!-- Google signup -->
+<form method="POST" id="idForm" action="<?=$_SERVER['PHP_SELF']?>">
+   <input type="hidden" name="id_token" value="" id="id_token">
+   <input type="hidden" name="email" value="" id="id_email">
+   <input type="hidden" name="firstname" value="" id="id_firstname">
+   <input type="hidden" name="lastname" value="" id="id_lastname">
+   <button type="submit" name="submitid" id="id_button" value="submitid" style="display: none;"></button>
+</form>
+
 <!-- Signup Modal -->
 <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
    <div class="modal-dialog" role="document">
@@ -46,6 +56,8 @@
                </div>
                <div class="modal-footer">
                   <button type="submit" name="submit" value="submit" class="btn cta-btn-yellow">Create account</button>
+                  or
+                  <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
                </div>
             </form>
          </div>
@@ -74,6 +86,8 @@
                </div>
                <div class="modal-footer">
                   <button type="submit" name="submitlog" value="submitlog" class="btn cta-btn-yellow">Log in</button>
+                  or
+                  <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn"></div>
                </div>
             </form>
          </div>

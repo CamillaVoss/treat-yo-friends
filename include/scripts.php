@@ -2,6 +2,36 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<script>
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+
+     function onSignIn(googleUser) {
+        var signedIn = <?= !empty($_SESSION['userID']) ? "true" : "false" ?>;
+        if (!signedIn) {
+            var id_token = googleUser.getAuthResponse().id_token;
+            var profile = googleUser.getBasicProfile();
+            var id_email = profile.getEmail();
+            var id_firstname = profile.getGivenName();
+            var id_lastname = profile.getFamilyName();
+            $(document).ready(function () {
+                $("#id_token").val(id_token);
+                $("#id_email").val(id_email);
+                $("#id_firstname").val(id_firstname);
+                $("#id_lastname").val(id_lastname);
+                $("#id_button").click();
+                //document.getElementById("idForm").submit();
+            });
+        }
+    } 
+</script>
+
 <script>
     $(document).ready(function () {
         var imageLoader = document.getElementById('wishPhoto');
