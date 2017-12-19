@@ -18,9 +18,6 @@
 <!-- Google signup -->
 <form method="POST" id="idForm" action="<?=$_SERVER['PHP_SELF']?>">
    <input type="hidden" name="id_token" value="" id="id_token">
-   <input type="hidden" name="email" value="" id="id_email">
-   <input type="hidden" name="firstname" value="" id="id_firstname">
-   <input type="hidden" name="lastname" value="" id="id_lastname">
    <button type="submit" name="submitid" id="id_button" value="submitid" style="display: none;"></button>
 </form>
 
@@ -205,7 +202,7 @@
                   </div>
                   <div class="form-group">
                      <label>Link</label>
-                     <input type="text" name="link" class="form-control" id="wishUpdateLink" required>
+                     <input type="text" name="link" class="form-control" id="wishUpdateLink">
                   </div>
                   <div class="form-group">
                      <label>Price</label>

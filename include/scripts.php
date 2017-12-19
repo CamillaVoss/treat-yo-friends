@@ -20,17 +20,9 @@
         var signedIn = <?= !empty($_SESSION['userID']) ? "true" : "false" ?>;
         if (!signedIn) {
             var id_token = googleUser.getAuthResponse().id_token;
-            var profile = googleUser.getBasicProfile();
-            var id_email = profile.getEmail();
-            var id_firstname = profile.getGivenName();
-            var id_lastname = profile.getFamilyName();
             $(document).ready(function () {
                 $("#id_token").val(id_token);
-                $("#id_email").val(id_email);
-                $("#id_firstname").val(id_firstname);
-                $("#id_lastname").val(id_lastname);
                 $("#id_button").click();
-                //document.getElementById("idForm").submit();
             });
         }
     } 

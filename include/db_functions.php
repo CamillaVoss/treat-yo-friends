@@ -76,39 +76,46 @@
 	require_once 'google-api-php-client/vendor/autoload.php';
 	if (filter_input(INPUT_POST, 'submitid')) {
 		$id_token = filter_input(INPUT_POST, 'id_token');
+
+		$client = new Google_Client(['client_id' => '990532978279-c8pvu81b7jl7gil79n6nvctd4r86lfc4.apps.googleusercontent.com']);
+
+		$data = $client->verifyIdToken($id_token)
+		or die('Invalid ID token');
+
+		if (!$data['email_verified'])
+			die('E-mail not verified');
+		$em = $data['email'];
+
 		require_once('db_con.php');	
 		$sql = 'SELECT userID 
 				FROM users 
-				WHERE id_token = ?';
+				WHERE username = ?';
 		$stmt = $con->prepare($sql);
-		$stmt->bind_param('s', $id_token);
+		$stmt->bind_param('s', $em);
 		$stmt->execute();
 		$stmt->bind_result($uid);
 		while ($stmt->fetch()) {}
 
 		if (!empty($uid)) {
+			$sql = 'UPDATE users
+					SET id_token = ?
+					WHERE userID = ?';
+			$stmt = $con->prepare($sql);
+			$stmt->bind_param('si', $id_token, $uid);
+			$stmt->execute();
 			$_SESSION['userID'] = $uid;
 			header("Location: index.php");
 			die();
 		} else {
-			$em = filter_input(INPUT_POST,'email')
-			or die('You must enter a valid email');
-
-			$fn = filter_input(INPUT_POST,'firstname')
-			or die('You must enter a valid name');
-
-			$ln = filter_input(INPUT_POST,'lastname')
-			or die('You must enter a valid name');
-
-			$client = new Google_Client(['client_id' => '990532978279-c8pvu81b7jl7gil79n6nvctd4r86lfc4.apps.googleusercontent.com']);
-			$payload = $client->verifyIdToken($id_token)
-			or die('Invalid ID token');
+			$fn = $data['given_name'];
+			$ln = $data['family_name'];
 
 			$sql = 'INSERT INTO users (username, firstname, lastname, id_token) VALUES (?, ?, ?, ?)';
 			$stmt = $con->prepare($sql);
 			$stmt->bind_param('ssss', $em, $fn, $ln, $id_token);
 			$stmt->execute();
 			header("Location: index.php");
+			die();
 		}
 	}
 
