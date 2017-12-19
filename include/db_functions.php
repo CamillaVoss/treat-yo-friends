@@ -73,7 +73,7 @@
 	}
 
 	// LOGIN WITH GOOGLE
-	require_once 'vendor/autoload.php';
+	require_once 'google-api-php-client/vendor/autoload.php';
 	if (filter_input(INPUT_POST, 'submitid')) {
 		$id_token = filter_input(INPUT_POST, 'id_token');
 		require_once('db_con.php');	
@@ -99,6 +99,10 @@
 
 			$ln = filter_input(INPUT_POST,'lastname')
 			or die('You must enter a valid name');
+
+			$client = new Google_Client(['client_id' => '990532978279-c8pvu81b7jl7gil79n6nvctd4r86lfc4.apps.googleusercontent.com']);
+			$payload = $client->verifyIdToken($id_token)
+			or die('Invalid ID token');
 
 			$sql = 'INSERT INTO users (username, firstname, lastname, id_token) VALUES (?, ?, ?, ?)';
 			$stmt = $con->prepare($sql);

@@ -12,7 +12,11 @@
         });
       }
 
-     function onSignIn(googleUser) {
+    var signInClicked = false;
+    function onSignIn(googleUser) {
+        if (signInClicked)
+            return;
+        signInClicked = true;
         var signedIn = <?= !empty($_SESSION['userID']) ? "true" : "false" ?>;
         if (!signedIn) {
             var id_token = googleUser.getAuthResponse().id_token;
